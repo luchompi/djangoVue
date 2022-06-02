@@ -5,7 +5,15 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Sede
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import TemplateView
+#HTML RENDER
+class SedeList(LoginRequiredMixin,TemplateView):
+    login_url="/auth/login"
+    template_name = 'Empresa/Sede/list.html'
 
+
+#API Implementation
 class SedeAPI(APIView):
     def get_queryset(self,pk):
         try:

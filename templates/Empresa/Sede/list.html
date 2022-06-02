@@ -1,0 +1,25 @@
+{% extends "base/index.html" %}
+{% load static %}
+{% block title %}
+  Sedes - MyTestApp
+{% endblock title %}
+{% block js %}
+<script type="text/javascript" src="{% static 'js/vue.js' %}">
+<script type="text/javascript" src="{% static 'js/axios.min.js' %}">
+
+</script>
+{% endblock js %}
+{% block header %}
+  <h1>Listado de Sedes <a class="btn btn-primary" href="">Añadir nuevo</a></h1>
+{% endblock header %}
+
+{% block content %}
+<div class="container-fluid" id="app">
+  <span v-for:"object in queryset" :key="object.id">
+    {$ object.sede $}
+  </span>
+</div>
+
+<script type="text/javascript" src="{% static 'js/components/empresa/sede/list.js' %}">
+
+{% endblock content %}
