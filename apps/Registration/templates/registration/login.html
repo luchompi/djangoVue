@@ -1,0 +1,34 @@
+{%extends 'base/index.html'%}
+
+{%block title%} Iniciar Sesión - MyTestApp{%endblock%}
+
+{%block content%}
+{%load crispy_forms_tags%}
+
+<hr style="color:white;">
+<div class="row justify-content-md-center">
+	<div class="col col-lg-4">
+		<div class="card border-primary mb-3" style="max-width: 18rem;">
+		  <div class="card-header" align="center">MyTestApp</div>
+		  <div class="card-body text-primary">
+		    <h5 class="card-title" align="center">Iniciar Sesión</h5>
+		    <p class="card-text" align="center">
+					<form method="POST" class="form-group">
+						{%csrf_token%}
+						{{form|crispy}}
+						<div class="container">
+							<div class="btn-group" role="group" aria-label="Basic example">
+							  <button type="submit" class="btn btn-success">Iniciar Sesion</button>
+							  <a  class="btn btn-primary" href="{% url 'register' %}">Registrarse</a>
+							</div>
+
+						</div>
+					</form>
+		    </p>
+		  </div>
+		</div>
+
+
+	</div>
+</div>
+{%endblock%}
